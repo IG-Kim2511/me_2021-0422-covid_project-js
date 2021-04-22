@@ -13,6 +13,9 @@ https://disease.sh/v3/covid-19/jhucsse/counties
 //  C 58 . JS 58
 
 // 🍄 let, const
+
+let url = 'https://disease.sh/v3/covid-19/jhucsse/counties';
+
 // let dateDisplay = 0;
 
 // let newCases = 0;
@@ -42,8 +45,25 @@ updatedAt: "2021-04-22 04:20:53"
 
 async function getUser() {
   try {
-    const response = await axios.get('https://disease.sh/v3/covid-19/jhucsse/counties');
-    console.log(response.data);
+    const response = await axios.get(url);
+    console.log(response.data);    
+    
+    let province = document.querySelector('.province');
+    province.innerHTML = response.data[0].province;
+
+    let county = document.querySelector('.county');
+    county.innerHTML = response.data[0].county;
+
+    let date = document.querySelector('.date');
+    date.innerHTML = response.data[0].updatedAt;
+
+    let confirmed = document.querySelector('.confirmed');
+    confirmed.innerHTML = response.data[0].stats.confirmed;
+
+    let deaths = document.querySelector('.deaths');
+    deaths.innerHTML = response.data[0].stats.deaths;
+
+
   } catch (error) {
     console.error(error);
   }
@@ -52,38 +72,6 @@ getUser();
 
 
 
-
-//🍄 axios  rapidApiKey
-/* 
-get the covid-19 stats for the past six months of one specific country by providing ISO code.
-
-*/
-/* 
-function covidStates() {    
-
-  const options = {
-    method: 'GET',
-    url: 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/covid-ovid-data/sixmonth/USA',
-    headers: {
-      'x-rapidapi-key': api.rapidApiKey,
-      'x-rapidapi-host': 'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
-    }
-  };
-  
-  axios.request(options).then(function (response) {
-    console.log(response.data);
-
-    let dateDisplay = document.querySelector('.date');
-    dateDisplay.innerHTML = response.data[0].date;
-
-
-  }).catch(function (error) {
-    console.error(error);
-  });
-
-}
-covidStates();
- */
 
 
 
