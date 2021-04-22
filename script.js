@@ -1,24 +1,17 @@
 "use strict";
 
-
-/* 
-
-/v3/covid-19/jhucsse/counties
-
-https://disease.sh/v3/covid-19/jhucsse/counties
-
-*/
-
-
 //  C 58 . JS 58
 
-// 🍄 let, const
+// 🍄 API
 
 // /v3/covid-19/jhucsse/counties
 let url = 'https://disease.sh/v3/covid-19/jhucsse/counties';
 
 // historical 
 let url_historical = 'https://disease.sh/v3/covid-19/historical/us?lastdays=500';
+
+
+// 🍄 let, const
 
 // let dateDisplay = 0;
 
@@ -54,7 +47,6 @@ stats:
 updatedAt: "2021-04-22 04:20:53"
 */
 
-
 async function getUser() {
   try {
     const response = await axios.get(url);
@@ -81,7 +73,6 @@ async function getUser() {
 
     let date = document.querySelector('.date');
     date.innerHTML = response.data[0].updatedAt;
-
 
     response.data.forEach( (a,i) => {               
       /* 
