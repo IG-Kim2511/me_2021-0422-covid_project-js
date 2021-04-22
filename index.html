@@ -17,13 +17,48 @@
     <!-- 🍄Navbar -->
     <section>
       <div>USA covidStates</div>
-      <div class="date"></div>    
-    </section>
+      <div class="date"></div>
 
+      <div class="nav_container">
+        <div class="nav">graph</div>
+        <div class="nav">data</div>
+        <div class="nav">confirmed of each County</div>
+      </div>
+    </section>
 
     <!-- 🍄covidStates -->
     <section>
+        
       <!-- 
+      🦄js 2. 🍄Created elements by JS             
+        <div class="covid_window">
+          province
+          <span class="province"></span>
+        </div>
+
+        <div class="covid_window">
+          county
+          <span class="county"></span>
+        </div>
+
+        <div class="covid_window">
+          date
+          <span class="date"></span>
+        </div>
+
+        <div class="covid_window">
+          confirmed
+          <span class="confirmed"></span>
+        </div>
+
+        <div class="covid_window">
+          deaths
+          <span class="deaths"></span>
+        </div>
+      -->
+
+      <!--   🦄js 4. -->
+      <!-- 🍄JSON
         coordinates:
           latitude: "32.53952745"
           longitude: "-86.64408227"
@@ -40,64 +75,54 @@
         updatedAt: "2021-04-22 04:20:53"
        -->
 
-      <!--            
+      <!-- 🍄Created elements by JS           
         <div class="windows_container">
 
           <div class="covid_window">
-            <div class="province"><span class="county"></span></div>
-            <div class="confirmed"></div>
-            <div class="deaths"></div>
+            <div class="province"> County <span class="county"></span></div>        
+              <div class="confirmed"> </div> 
+              <div class="deaths"></div>          
           </div>
-
           <div class="covid_window"></div>
           <div class="covid_window"></div>
-          <div class="covid_window"></div>
-          <div class="covid_window"></div>
-          <div class="covid_window"></div>
-          <div class="covid_window"></div>
-          <div class="covid_window"></div>
-          <div class="covid_window"></div>
+          <div class="covid_window"></div>  
       
         </div>
        -->
-
-      <div class="windows_container">
+       <div class="windows_container" >
         <div class="covid_window">
-
+          <div class="province"> province& County <span class="county"></span></div>        
+          <div class="confirmed">confirmed</div> 
+          <div class="deaths">deaths</div>          
         </div>
+       </div>
+
+      <!--  🦄js 4.  -->
+      <div class="windows_container">
+        <div class="covid_window"></div>
       </div>
+    </section>
+  
+
+    <!-- 🦄js 6 -->
+    <!--
+       cases:
+      1/1/21: 20252991
+
+      deaths:
+      1/1/21: 354232
+
+      recovered:
+      1/1/21: 0
+     -->
+
+    <section>
+
+      <div class="case"></div>
+      <div class="deaths"></div>
+      <div class="recoverd"></div>
 
     </section>
-
-
-    <!-- 
-    <section>
-      
-      <div class="covid_window">
-        province
-        <span class="province"></span>
-      </div>
-
-      <div class="covid_window">
-        county
-        <span class="county"></span>
-      </div>
-
-      <div class="covid_window">
-        date
-        <span class="date"></span>
-      </div>
-
-      <div class="covid_window">
-        confirmed
-        <span class="confirmed"></span>
-      </div>
-
-      <div class="covid_window">
-        deaths
-        <span class="deaths"></span>
-      </div>
-    </section> -->
 
     <script src="script.js"></script>
   </body>

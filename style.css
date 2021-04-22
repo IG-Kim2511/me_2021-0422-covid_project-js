@@ -1,5 +1,5 @@
 *{
-    
+  
 }
 
 .province{
@@ -9,3 +9,54 @@
     color: #3c763d;
     background-color: #dff0d8;
 }
+
+.confirmed{
+    padding: 15px;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    color: lightsalmon;
+    background-color: #dff0d8;
+
+}
+
+.deaths{
+    padding: 15px;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    color: lightskyblue;
+    background-color: #dff0d8;
+}
+/* 
+.covid_window{
+    display: flex;
+    
+    
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.covid_window > div{
+    display: block;
+    margin: auto;
+    width: 100%;
+
+} */
+
+
+
+.covid_window {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-gap: 10px;
+    background-color: #fff;
+    color: #444; */
+  }
+  
+.covid_window >  div{
+    background-color: #lightskyblue;
+    /* color: #fff; */
+    border-radius: 5px;
+    padding: 20px;
+    /* font-size: 150%; */
+  }
+
