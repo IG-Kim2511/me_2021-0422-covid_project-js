@@ -24,6 +24,13 @@ let url = 'https://disease.sh/v3/covid-19/jhucsse/counties';
 // let totalCases = 0;
 // let totalDeaths = 0;
 
+
+// 🍄 selectors
+
+let windowsContainer = document.querySelector('.windows_container');
+let covidWindow = document.querySelector('.covid_window');
+
+
 //🍄 axios | /v3/covid-19/jhucsse/counties
 
 /* 
@@ -43,12 +50,13 @@ stats:
 updatedAt: "2021-04-22 04:20:53"
 */
 
+
 async function getUser() {
   try {
     const response = await axios.get(url);
     console.log(response.data);    
     
-    let province = document.querySelector('.province');
+/*     let province = document.querySelector('.province');
     province.innerHTML = response.data[0].province;
 
     let county = document.querySelector('.county');
@@ -62,7 +70,35 @@ async function getUser() {
 
     let deaths = document.querySelector('.deaths');
     deaths.innerHTML = response.data[0].stats.deaths;
+ */
 
+    let date = document.querySelector('.date');
+    date.innerHTML = response.data[0].updatedAt;
+
+
+    response.data.forEach( (a,i) => {               
+      /* 
+      1) create div covid_window in windows_container
+      2) put province, county in 'covid window'
+
+      */
+
+      let province = document.createElement('div');
+      province.className = "province";
+      province.innerHTML = response.data[i].province;      
+      covidWindow.append(province);      
+
+      let county = document.createElement('span');
+      county.className = "county";
+      county.innerHTML = ` ${response.data[i].county}`;
+      province.append(county);
+    
+
+
+
+ 
+      
+    });
 
   } catch (error) {
     console.error(error);
@@ -74,8 +110,6 @@ getUser();
 
 
 
-
-// 🍄 selectors
 
 // 🍄 event Listeners
 
