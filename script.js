@@ -235,9 +235,9 @@ historical_container();
 /* 
 
 🍄
-1. each number country, take datas 
-2, make object(key, value) with them
-3, chart.js  - bar
+1. take country, and latest data of vaccine
+2. make a chart.js
+
 */
 /* 
 data: Array(184)
@@ -253,15 +253,26 @@ const vaccine =()=>{
   .then(function (response) {
     // handle success
     console.log(response);
-    console.log(response.data[0].timeline);
+    // console.log(response.data[0].timeline);
+    // console.log(response.data[0].country);
 
-    // js 8-1. getting last itme from object
+    // js 8-1. getting last item from object
+    /*
     let vaccineNum = response.data[0].timeline;
     let lastVaccineNum = vaccineNum[Object.keys(vaccineNum)[Object.keys(vaccineNum).length - 1]]
-
     console.log(lastVaccineNum);
 
+    let country = response.data[0].country;
+    console.log(country); */
 
+    for (let i = 0; i < response.data.length; i++) {
+      let country = response.data[i].country;
+
+      let vaccineNum = response.data[i].timeline;
+      let lastVaccineNum = vaccineNum[Object.keys(vaccineNum)[Object.keys(vaccineNum).length - 1]]      
+      console.log(country);
+      console.log(lastVaccineNum);
+    }
 
 
 
