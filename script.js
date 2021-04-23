@@ -56,23 +56,6 @@ async function covidUsa() {
     const response = await axios.get(url_usa);
     console.log(response.data);    
     
-    // 🍉js 2.
-      /*  let province = document.querySelector('.province');
-          province.innerHTML = response.data[0].province;
-
-          let county = document.querySelector('.county');
-          county.innerHTML = response.data[0].county;
-
-          let date = document.querySelector('.date');
-          date.innerHTML = response.data[0].updatedAt;
-
-          let confirmed = document.querySelector('.confirmed');
-          confirmed.innerHTML = response.data[0].stats.confirmed;
-
-          let deaths = document.querySelector('.deaths');
-          deaths.innerHTML = response.data[0].stats.deaths;
-      */
-
     // 🍉js 4.
 
     let date = document.querySelector('.date');
@@ -144,21 +127,19 @@ function historical_container() {
       3. use 'let cases' to chart.js
       4. labels
     */
-    for (const property in casesObject) {
-        // console.log(`${property}: ${casesObject[property]}`);
+    
+    for (const property in casesObject) {                   //js 6-2
         cases.push(casesObject[property]);  
     }
     
-    for (const property in deathsObject) {
-        // console.log(`${property}: ${casesObject[property]}`);
+    for (const property in deathsObject) {        
         deaths.push(deathsObject[property]);  
         // console.log(deathsObject);
     }
     
-    for (const property in recoveredObject) {
-        // console.log(`${property}: ${casesObject[property]}`);
+    for (const property in recoveredObject) {        
         recovered.push(recoveredObject[property]);  
-        console.log(recoveredObject);
+        // console.log(recoveredObject);
     }
 
     // 🍄 chart.js - covidCases ,covidDeaths ,recovered
