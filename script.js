@@ -141,6 +141,7 @@ function historical_container() {
       1. for...in
       2. push a each datas of object to empty array (let cases = [];)
       3. use 'let cases' to chart.js
+      4. labels
     */
     for (const property in casesObject) {
         // console.log(`${property}: ${casesObject[property]}`);
@@ -149,55 +150,52 @@ function historical_container() {
 
 
     // 🍄 chart.js
-var ctx = document.getElementById('myChart');
+    var ctx = document.getElementById('myChart');
 
-var myChart = new Chart(ctx, {
-    type: 'line',
+    console.log(Object.keys(casesObject))
 
-    // Object.keys(myObject).length
+    let labels = Object.keys(casesObject)               //js 6-4
 
-    data: {
-        labels: [ 
-          'lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred',
-          
-          // for (let index = 0; index < cases.keys(myObject).length; index++) {
-          //   const element = array[index];
-            
-          // }
-          ],
-        datasets: [{
-            label: '# of Votes',
-            data: cases,                        //js 6-3
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
+    var myChart = new Chart(ctx, {
+        type: 'line',
+
+        // Object.keys(myObject).length
+
+        data: {
+            labels: labels,                 //js 6-4
+            datasets: [{
+                label: '# of Votes',
+                data: cases,                        //js 6-3
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             }
         }
-    }
-});
+    });
 
 
-  })
+      })
   .catch(function (error) {
     // handle error
     console.log(error);
