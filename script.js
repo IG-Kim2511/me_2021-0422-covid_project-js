@@ -13,10 +13,11 @@ let url_historical = 'https://disease.sh/v3/covid-19/historical/us?lastdays=150'
 // COVID-19 vaccine doses administered for all states
 let url_vaccine = 'https://disease.sh/v3/covid-19/vaccine/coverage/states?lastdays=150';
 
-// COVID-19 vaccine doses administered for all countries
+// COVID-19 state of vaccine doses administered for all countries
 let url_vaccine_world = 'https://disease.sh/v3/covid-19/vaccine/coverage/countries?lastdays=150';
 
-// multiple axios
+
+//js.10 multiple axios
 const requestOne = axios.get(url_historical);
 const requestTwo = axios.get(url_vaccine_world);
 
@@ -118,6 +119,8 @@ recovered:
 1/1/21: 0
 */
 
+// 🍉JS 10, multiple axios
+
 function historical_container() {
 
   let cases =[];                    //js 6-3
@@ -126,17 +129,17 @@ function historical_container() {
 
   axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
     const response = responses[0]
-    const responseTwo = responses[1]        // 🍉JS 8
+    const responseTwo = responses[1]        // 🍉JS 10
 
     // console.log(response);
+    console.log(response.data.timeline);
     let casesObject = response.data.timeline.cases;  
     let deathsObject = response.data.timeline.deaths;  
     // let recoveredObject = response.data.timeline.recovered; 
 
     // console.log(responseTwo);    
-    // console.log(responseTwo.data[177].timeline);
+    console.log(responseTwo.data[177].timeline);
     let vaccineUsaObject = responseTwo.data[177].timeline;    
-
 
     /* 🍄Algorithm) for..in loop :  loop for object
       1. for...in
@@ -156,13 +159,14 @@ function historical_container() {
     
     for (const property in vaccineUsaObject) {        
       vaccineUsa.push(vaccineUsaObject[property]);  
-        console.log(vaccineUsaObject);
+        // console.log(vaccineUsaObject);
     }
 
     // 🍈 chart.js - covidCases ,covidDeaths ,recovered
     var ctx = document.getElementById('covidCases');
 
     let labels = Object.keys(casesObject)               //js 6-4
+    
 
     var covidCases = new Chart(ctx, {
         type: 'line',
@@ -193,7 +197,7 @@ function historical_container() {
               borderWidth: 1
           },
             {
-              label: 'vaccineUsa for last 150days ',
+              label: 'state of vaccine in USA for last 150days ',
               data: vaccineUsa,                        //js 6-3
               backgroundColor: [
               '#0eae44'
@@ -213,9 +217,9 @@ function historical_container() {
 
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true                    
                 }
-            }
+            }              
         }        
     });
 
@@ -227,7 +231,14 @@ function historical_container() {
 
 historical_container();
 
-// 🍉JS 8, axios, url_vaccine_usa
+// 🍉JS 8, axios, url_vaccine_world
+/* 
+
+🍄
+1. each number country, take datas 
+2, make object(key, value) with them
+3, chart.js  - bar
+*/
 /* 
 data: Array(184)
 0:
@@ -242,6 +253,18 @@ const vaccine =()=>{
   .then(function (response) {
     // handle success
     console.log(response);
+    console.log(response.data[0].timeline);
+
+    // js 8-1. getting last itme from object
+    let vaccineNum = response.data[0].timeline;
+    let lastVaccineNum = vaccineNum[Object.keys(vaccineNum)[Object.keys(vaccineNum).length - 1]]
+
+    console.log(lastVaccineNum);
+
+
+
+
+
   })
   .catch(function (error) {
     // handle error
@@ -254,3 +277,6 @@ const vaccine =()=>{
   }
 
 vaccine();
+
+
+
