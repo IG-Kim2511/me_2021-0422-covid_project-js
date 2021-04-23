@@ -137,10 +137,10 @@ function historical_container() {
     let casesObject = response.data.timeline.cases;  
     let deathsObject = response.data.timeline.deaths;  
     // let recoveredObject = response.data.timeline.recovered; 
-
+    
     // console.log(responseTwo);    
     console.log(responseTwo.data[177].timeline);
-    let vaccineUsaObject = responseTwo.data[177].timeline;    
+    let vaccineUsaObject = responseTwo.data[177].timeline;   
 
     /* 🍄Algorithm) for..in loop :  loop for object
       1. for...in
@@ -223,6 +223,34 @@ function historical_container() {
         }        
     });
 
+
+    //🍈js 12. total_stats
+
+    let totalCases = document.querySelector('.total_cases');
+    let totalDeaths = document.querySelector('.total_deaths');
+    let totalVaccine = document.querySelector('.total_vaccine');
+
+    
+    /* 
+        let casesObject = response.data.timeline.cases;  
+    let deathsObject = response.data.timeline.deaths;  
+    
+    */
+
+    
+    let latestCases = casesObject[Object.keys(casesObject)[Object.keys(casesObject).length - 1]]   
+    
+    let latestDeathsObject = deathsObject[Object.keys(deathsObject)[Object.keys(deathsObject).length - 1]] 
+
+    let vaccineList = responseTwo.data[177].timeline;
+    let latestVaccineNum = vaccineList[Object.keys(vaccineList)[Object.keys(vaccineList).length - 1]] 
+    console.log(latestVaccineNum)
+    
+    totalCases.innerHTML = latestCases;
+    totalDeaths.innerHTML = latestDeathsObject;
+    totalVaccine.innerHTML = latestVaccineNum;
+
+
   })).catch(errors => {
     // react on errors.
   })
@@ -267,11 +295,11 @@ const vaccine =()=>{
     
     for (let i = 0; i < response.data.length; i++) {
       let country = response.data[i].country;
-      console.log(country);
+      // console.log(country);
 
       let vaccineNum = response.data[i].timeline;
       let lastVaccineNum = vaccineNum[Object.keys(vaccineNum)[Object.keys(vaccineNum).length - 1]]      
-      console.log(lastVaccineNum);      
+      // console.log(lastVaccineNum);      
     }
   })
   .catch(function (error) {
