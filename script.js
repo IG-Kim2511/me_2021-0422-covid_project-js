@@ -5,7 +5,7 @@
 // 🍄 API
 
 // /v3/covid-19/jhucsse/counties
-let url = 'https://disease.sh/v3/covid-19/jhucsse/counties';
+let url_usa = 'https://disease.sh/v3/covid-19/jhucsse/counties';
 
 // historical 
 let url_historical = 'https://disease.sh/v3/covid-19/historical/us?lastdays=500';
@@ -31,8 +31,9 @@ let covidWindow = document.querySelector('.covid_window');
 //  functions for sharing 
 // 🍄 functions standalone
 
-//🍄 axios | /v3/covid-19/jhucsse/counties
+//🍄 axios | covidUsa | /v3/covid-19/jhucsse/counties
 
+// 🍉js 2,4, covidUsa axios
 /* 
 coordinates:
   latitude: "32.53952745"
@@ -50,9 +51,9 @@ stats:
 updatedAt: "2021-04-22 04:20:53"
 */
 
-async function getUser() {
+async function covidUsa() {
   try {
-    const response = await axios.get(url);
+    const response = await axios.get(url_usa);
     console.log(response.data);    
     
     // 🍉js 2.
@@ -109,10 +110,10 @@ async function getUser() {
     console.error(error);
   }
 }
-getUser();
+covidUsa();
 
 
-// 🍉js 6
+// 🍉js 6, historical_container axios
 /*  api
 cases:
 1/1/21: 20252991
@@ -126,16 +127,16 @@ recovered:
 
 function historical_container() {
 
-  let cases =[];
+  let cases =[];                    //js 6-3
   let deaths =[];
   let recovered =[];
 
   axios.get(url_historical)
   .then(function (response) {
 
-    console.log(response.data.timeline)
-
     let casesObject = response.data.timeline.cases;  
+    let deathsObject = response.data.timeline.deaths;  
+    let recoveredObject = response.data.timeline.recovered;  
 
     /* 🍄Algorithm) for..in loop :  loop for object
       1. for...in
@@ -147,63 +148,87 @@ function historical_container() {
         // console.log(`${property}: ${casesObject[property]}`);
         cases.push(casesObject[property]);  
     }
+    
+    for (const property in deathsObject) {
+        // console.log(`${property}: ${casesObject[property]}`);
+        deaths.push(deathsObject[property]);  
+        // console.log(deathsObject);
+    }
+    
+    for (const property in recoveredObject) {
+        // console.log(`${property}: ${casesObject[property]}`);
+        recovered.push(recoveredObject[property]);  
+        console.log(recoveredObject);
+    }
 
-
-    // 🍄 chart.js
-    var ctx = document.getElementById('myChart');
-
-    console.log(Object.keys(casesObject))
+    // 🍄 chart.js - covidCases ,covidDeaths ,recovered
+    var ctx = document.getElementById('covidCases');
 
     let labels = Object.keys(casesObject)               //js 6-4
 
-    var myChart = new Chart(ctx, {
+    var covidCases = new Chart(ctx, {
         type: 'line',
-
-        // Object.keys(myObject).length
 
         data: {
             labels: labels,                 //js 6-4
-            datasets: [{
-                label: '# of Votes',
+            datasets: [
+              {
+                label: 'covid cases for last 500days ',
                 data: cases,                        //js 6-3
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                '#feb546'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                  '#feb546'
                 ],
                 borderWidth: 1
-            }]
+            },
+            {
+              label: 'deaths for last 500days ',
+              data: deaths,                        //js 6-3
+              backgroundColor: [
+              'lightsalmon'
+              ],
+              borderColor: [
+                'lightsalmon'
+              ],
+              borderWidth: 1
+          },
+            {
+              label: 'recovered for last 500days ',
+              data: recovered,                        //js 6-3
+              backgroundColor: [
+              '#2b81e4'
+              ],
+              borderColor: [
+                '#2b81e4'
+              ],
+              borderWidth: 1
+          } 
+          ],            
         },
         options: {
+
+          // js 8, chart js size
+          responsive:true,
+          maintainAspectRatio: false,
+
             scales: {
                 y: {
                     beginAtZero: true
                 }
             }
-        }
+        }        
     });
-
-
-      })
+  })
   .catch(function (error) {
     // handle error
     console.log(error);
   })
   .then(function () {
     // always executed
-  });  
-  
+  });    
 }
+
 historical_container();
 

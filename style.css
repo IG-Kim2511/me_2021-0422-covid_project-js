@@ -1,6 +1,41 @@
-*{
+
+:root {
+    /* color */
   
-}
+    --naver-color :  #0eae44;
+    --kakao-color :  #fee101;
+  
+    --color-white: #ffffff;
+    --color-light-white: #eeeeee;
+    --color-dark-white: #bdbdbd;
+  
+    --color-black: #000000;
+    --color-grey: #616161;
+    --color-dark-grey: #4d4d4d;
+    --color-light-grey: #7c7979;
+    
+    --color-blue: #2b81e4;
+    --color-light-mint: #cbf3f0;
+    --color-yellow: #fff7d1;
+    --color-orange: #feb546;
+    --color-strong-orange: #dc2f02;
+    
+    --test-color: yellow;
+    
+    /* letterspacing : basic 0.1rem */
+    --letterspacing-basic: 0.1rem;
+    --letterspacing-test: 2rem;
+  
+    /* Size :basic 4px=0.5rem  */
+    --size-border-basic-radius: 0.5rem;
+    --size-border-test-radius: 1rem;
+  
+    /* Animation :basic 300ms=0.3s  */
+  
+    --animation_basic-duration: 0.3s;
+    --animation_test-duration: 1s;
+  }
+
 
 .province{
     padding: 15px;
@@ -14,8 +49,9 @@
     padding: 15px;
     border: 1px solid #d6e9c6;
     border-radius: 4px;
-    color: lightsalmon;
+    color: lightskyblue;
     background-color: #dff0d8;
+    
 
 }
 
@@ -23,7 +59,7 @@
     padding: 15px;
     border: 1px solid #d6e9c6;
     border-radius: 4px;
-    color: lightskyblue;
+    color: lightsalmon;
     background-color: #dff0d8;
 }
 /* 
@@ -60,3 +96,8 @@
     /* font-size: 150%; */
   }
 
+/* js 8, chart js size */
+  .chart-container {
+    width: 1000px;
+    height: 500px;
+}
