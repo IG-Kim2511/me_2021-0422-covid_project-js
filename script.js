@@ -10,6 +10,8 @@ let url_usa = 'https://disease.sh/v3/covid-19/jhucsse/counties';
 // historical 
 let url_historical = 'https://disease.sh/v3/covid-19/historical/us?lastdays=500';
 
+// COVID-19 vaccine doses administered for all states
+let url_vaccine = 'https://disease.sh/v3/covid-19/vaccine/coverage/states?lastdays=500';
 
 // 🍈 let, const
 
@@ -114,6 +116,7 @@ function historical_container() {
   let deaths =[];
   let recovered =[];
 
+  
   axios.get(url_historical)
   .then(function (response) {
 
@@ -212,4 +215,32 @@ function historical_container() {
 }
 
 historical_container();
+
+// 🍉JS 8, axios, url_vaccine
+/* 
+data: Array(65)
+0:
+state: "Alabama"
+timeline:
+1/1/21: 0
+ */
+
+const vaccine =()=>{
+  axios.get(url_vaccine)
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+
+  }
+
+vaccine();
+
 
