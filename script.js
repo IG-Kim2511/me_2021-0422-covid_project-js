@@ -27,6 +27,9 @@ let url_historical = 'https://disease.sh/v3/covid-19/historical/us?lastdays=500'
 let windowsContainer = document.querySelector('.windows_container');
 let covidWindow = document.querySelector('.covid_window');
 
+// 🍄 event Listeners
+//  functions for sharing 
+// 🍄 functions standalone
 
 //🍄 axios | /v3/covid-19/jhucsse/counties
 
@@ -52,7 +55,7 @@ async function getUser() {
     const response = await axios.get(url);
     console.log(response.data);    
     
-    // 🦄js 2.
+    // 🍉js 2.
       /*  let province = document.querySelector('.province');
           province.innerHTML = response.data[0].province;
 
@@ -69,7 +72,7 @@ async function getUser() {
           deaths.innerHTML = response.data[0].stats.deaths;
       */
 
-    // 🦄js 4.
+    // 🍉js 4.
 
     let date = document.querySelector('.date');
     date.innerHTML = response.data[0].updatedAt;
@@ -109,8 +112,8 @@ async function getUser() {
 getUser();
 
 
-// 🦄js 6
-/* 
+// 🍉js 6
+/*  api
 cases:
 1/1/21: 20252991
 
@@ -119,31 +122,90 @@ deaths:
 
 recovered:
 1/1/21: 0
-
 */
-async function historical() {
-  try {
-    const response = await axios.get(url_historical);
-    console.log(response.data.timeline);
+
+function historical_container() {
+
+  let cases =[];
+  let deaths =[];
+  let recovered =[];
+
+  axios.get(url_historical)
+  .then(function (response) {
+
+    console.log(response.data.timeline)
+
+    let casesObject = response.data.timeline.cases;  
+
+    /* 🍄Algorithm) for..in loop :  loop for object
+      1. for...in
+      2. push a each datas of object to empty array (let cases = [];)
+      3. use 'let cases' to chart.js
+    */
+    for (const property in casesObject) {
+        // console.log(`${property}: ${casesObject[property]}`);
+        cases.push(casesObject[property]);  
+    }
 
 
-  } catch (error) {
-    console.error(error);
-  }
+    // 🍄 chart.js
+var ctx = document.getElementById('myChart');
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+
+    // Object.keys(myObject).length
+
+    data: {
+        labels: [ 
+          'lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred','lightred',
+          
+          // for (let index = 0; index < cases.keys(myObject).length; index++) {
+          //   const element = array[index];
+            
+          // }
+          ],
+        datasets: [{
+            label: '# of Votes',
+            data: cases,                        //js 6-3
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });  
+  
 }
-
-historical();
-
-
-
-
-
-
-// 🍄 event Listeners
-
-//  functions for sharing 
-
-// 🍄 functions standalone
-
-
+historical_container();
 

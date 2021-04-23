@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- chart.js CDN -->
-    https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
   </head>
   <body>
     <!-- 🍄Navbar -->
@@ -29,11 +29,41 @@
       </div>
     </section>
 
+    
+    <!-- 🍉js 6 -->
+    <!--
+       cases:
+      1/1/21: 20252991
+
+      deaths:
+      1/1/21: 354232
+
+      recovered:
+      1/1/21: 0
+     -->
+
+     <section>
+
+      <div class="case"></div>
+      <div class="deaths"></div>
+      <div class="recoverd"></div>
+
+
+      <canvas id="myChart" width="400" height="400"></canvas>
+      <canvas id="myChart2" width="400" height="400"></canvas>
+      <canvas id="myChart3" width="400" height="400"></canvas>
+
+
+    </section>
+
+
+
+
     <!-- 🍄confirmed of each County-->
     <section>
         
       <!-- 
-      🦄js 2. 🍄Created elements by JS             
+      🍉js 2. 🍄Created elements by JS             
         <div class="covid_window">
           province
           <span class="province"></span>
@@ -60,7 +90,7 @@
         </div>
       -->
 
-      <!--   🦄js 4. -->
+      <!--   🍉js 4. -->
       <!-- 🍄JSON
         coordinates:
           latitude: "32.53952745"
@@ -100,32 +130,12 @@
         </div>
        </div>
 
-      <!--  🦄js 4.  -->
+      <!--  🍉js 4.  -->
       <div class="windows_container">
         <div class="covid_window"></div>
       </div>
     </section>
   
-
-    <!-- 🦄js 6 -->
-    <!--
-       cases:
-      1/1/21: 20252991
-
-      deaths:
-      1/1/21: 354232
-
-      recovered:
-      1/1/21: 0
-     -->
-
-    <section>
-
-      <div class="case"></div>
-      <div class="deaths"></div>
-      <div class="recoverd"></div>
-
-    </section>
 
     <script src="script.js"></script>
   </body>
