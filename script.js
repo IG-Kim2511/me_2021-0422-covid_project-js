@@ -73,33 +73,58 @@ async function covidUsa() {
     let date = document.querySelector('.date');
     date.innerHTML = response.data[0].updatedAt;
 
-    response.data.forEach( (a,i) => {               
-      /* 
-      1) create div covid_window in windows_container
-      2) put province, county in 'covid window'
-      */
+    for (const iterator of response.data) {
+      
+        console.log(iterator);
 
-      let province = document.createElement('div');
-      province.className = "province";
-      province.innerHTML = response.data[i].province;      
-      covidWindow.append(province);      
+        let province = document.createElement('div');
+        province.className = "province";
+        province.innerHTML = iterator.province;      
+        covidWindow.append(province); 
+    
+        let county = document.createElement('span');
+        county.className = "county";
+        county.innerHTML = ` ${iterator.county}`;
+        province.append(county);   
+        
+        let confirmed = document.createElement('div');
+        confirmed.className = "confirmed";
+        confirmed.innerHTML = iterator.stats.confirmed;      
+        covidWindow.append(confirmed);  
+        
+        let deaths = document.createElement('div');
+        deaths.className = "deaths";
+        deaths.innerHTML = iterator.stats.deaths;      
+        covidWindow.append(deaths);   
+    };
 
-      let county = document.createElement('span');
-      county.className = "county";
-      county.innerHTML = ` ${response.data[i].county}`;
-      province.append(county);   
+    // response.data.forEach( (a,i) => {               
+    //   /* 
+    //   1) create div covid_window in windows_container
+    //   2) put province, county in 'covid window'
+    //   */
+
+    //   let province = document.createElement('div');
+    //   province.className = "province";
+    //   province.innerHTML = response.data[i].province;      
+    //   covidWindow.append(province);      
+
+    //   let county = document.createElement('span');
+    //   county.className = "county";
+    //   county.innerHTML = ` ${response.data[i].county}`;
+    //   province.append(county);   
       
-      let confirmed = document.createElement('div');
-      confirmed.className = "confirmed";
-      confirmed.innerHTML = response.data[i].stats.confirmed;      
-      covidWindow.append(confirmed);  
+    //   let confirmed = document.createElement('div');
+    //   confirmed.className = "confirmed";
+    //   confirmed.innerHTML = response.data[i].stats.confirmed;      
+    //   covidWindow.append(confirmed);  
       
-      let deaths = document.createElement('div');
-      deaths.className = "deaths";
-      deaths.innerHTML = response.data[i].stats.deaths;      
-      covidWindow.append(deaths);   
+    //   let deaths = document.createElement('div');
+    //   deaths.className = "deaths";
+    //   deaths.innerHTML = response.data[i].stats.deaths;      
+    //   covidWindow.append(deaths);   
       
-    });
+    // });
 
   } catch (error) {
     console.error(error);
