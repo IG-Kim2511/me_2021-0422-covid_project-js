@@ -8,10 +8,18 @@
 let url_usa = 'https://disease.sh/v3/covid-19/jhucsse/counties';
 
 // historical 
-let url_historical = 'https://disease.sh/v3/covid-19/historical/us?lastdays=500';
+let url_historical = 'https://disease.sh/v3/covid-19/historical/us?lastdays=150';
 
 // COVID-19 vaccine doses administered for all states
-let url_vaccine = 'https://disease.sh/v3/covid-19/vaccine/coverage/states?lastdays=500';
+let url_vaccine = 'https://disease.sh/v3/covid-19/vaccine/coverage/states?lastdays=150';
+
+// COVID-19 vaccine doses administered for all countries
+let url_vaccine_world = 'https://disease.sh/v3/covid-19/vaccine/coverage/countries?lastdays=150';
+
+// multiple axios
+const requestOne = axios.get(url_historical);
+const requestTwo = axios.get(url_vaccine_world);
+
 
 // 🍈 let, const
 
@@ -114,15 +122,21 @@ function historical_container() {
 
   let cases =[];                    //js 6-3
   let deaths =[];
-  let recovered =[];
+  let vaccineUsa =[];
 
-  
-  axios.get(url_historical)
-  .then(function (response) {
+  axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
+    const response = responses[0]
+    const responseTwo = responses[1]        // 🍉JS 8
 
+    // console.log(response);
     let casesObject = response.data.timeline.cases;  
     let deathsObject = response.data.timeline.deaths;  
-    let recoveredObject = response.data.timeline.recovered;  
+    // let recoveredObject = response.data.timeline.recovered; 
+
+    // console.log(responseTwo);    
+    // console.log(responseTwo.data[177].timeline);
+    let vaccineUsaObject = responseTwo.data[177].timeline;    
+
 
     /* 🍄Algorithm) for..in loop :  loop for object
       1. for...in
@@ -140,9 +154,9 @@ function historical_container() {
         // console.log(deathsObject);
     }
     
-    for (const property in recoveredObject) {        
-        recovered.push(recoveredObject[property]);  
-        // console.log(recoveredObject);
+    for (const property in vaccineUsaObject) {        
+      vaccineUsa.push(vaccineUsaObject[property]);  
+        console.log(vaccineUsaObject);
     }
 
     // 🍈 chart.js - covidCases ,covidDeaths ,recovered
@@ -157,7 +171,7 @@ function historical_container() {
             labels: labels,                 //js 6-4
             datasets: [
               {
-                label: 'covid cases for last 500days ',
+                label: 'covid cases for last 150days ',
                 data: cases,                        //js 6-3
                 backgroundColor: [
                 '#feb546'
@@ -168,7 +182,7 @@ function historical_container() {
                 borderWidth: 1
             },
             {
-              label: 'deaths for last 500days ',
+              label: 'deaths for last 150days ',
               data: deaths,                        //js 6-3
               backgroundColor: [
               'lightsalmon'
@@ -178,17 +192,17 @@ function historical_container() {
               ],
               borderWidth: 1
           },
-          //   {
-          //     label: 'recovered for last 500days ',
-          //     data: recovered,                        //js 6-3
-          //     backgroundColor: [
-          //     '#2b81e4'
-          //     ],
-          //     borderColor: [
-          //       '#2b81e4'
-          //     ],
-          //     borderWidth: 1
-          // } 
+            {
+              label: 'vaccineUsa for last 150days ',
+              data: vaccineUsa,                        //js 6-3
+              backgroundColor: [
+              '#0eae44'
+              ],
+              borderColor: [
+                '#0eae44'
+              ],
+              borderWidth: 1
+          } 
           ],            
         },
         options: {
@@ -204,29 +218,27 @@ function historical_container() {
             }
         }        
     });
+
+  })).catch(errors => {
+    // react on errors.
   })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });    
 }
+
 
 historical_container();
 
-// 🍉JS 8, axios, url_vaccine
+// 🍉JS 8, axios, url_vaccine_usa
 /* 
-data: Array(65)
+data: Array(184)
 0:
-state: "Alabama"
+177:
+country: "USA"
 timeline:
-1/1/21: 0
+1/1/21: 3375693
  */
 
 const vaccine =()=>{
-  axios.get(url_vaccine)
+  axios.get(url_vaccine_world)
   .then(function (response) {
     // handle success
     console.log(response);
@@ -242,5 +254,3 @@ const vaccine =()=>{
   }
 
 vaccine();
-
-
