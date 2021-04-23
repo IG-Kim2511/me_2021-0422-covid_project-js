@@ -35,6 +35,7 @@ const requestTwo = axios.get(url_vaccine_world);
 
 // 🍈 selectors
 
+// js 4.
 let windowsContainer = document.querySelector('.windows_container');
 let covidWindow = document.querySelector('.covid_window');
 
@@ -163,12 +164,11 @@ function historical_container() {
     }
 
     // 🍈 chart.js - covidCases ,covidDeaths ,recovered
-    var ctx = document.getElementById('covidCases');
+    let ctx = document.getElementById('covidCases');
 
-    let labels = Object.keys(casesObject)               //js 6-4
-    
+    let labels = Object.keys(casesObject)               //js 6-4    
 
-    var covidCases = new Chart(ctx, {
+    let covidCases = new Chart(ctx, {
         type: 'line',
 
         data: {
@@ -228,7 +228,6 @@ function historical_container() {
   })
 }
 
-
 historical_container();
 
 // 🍉JS 8, axios, url_vaccine_world
@@ -236,7 +235,7 @@ historical_container();
 
 🍄
 1. take country, and latest data of vaccine
-2. make a chart.js
+2. make a chart.js                          ................🌊
 
 */
 /* 
@@ -264,18 +263,16 @@ const vaccine =()=>{
 
     let country = response.data[0].country;
     console.log(country); */
-
+    
+    
     for (let i = 0; i < response.data.length; i++) {
       let country = response.data[i].country;
+      console.log(country);
 
       let vaccineNum = response.data[i].timeline;
       let lastVaccineNum = vaccineNum[Object.keys(vaccineNum)[Object.keys(vaccineNum).length - 1]]      
-      console.log(country);
-      console.log(lastVaccineNum);
+      console.log(lastVaccineNum);      
     }
-
-
-
   })
   .catch(function (error) {
     // handle error

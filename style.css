@@ -5,12 +5,20 @@
 
 html {
   font-size: 100%;
+  
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
-  max-width: 1000px;
+    font-family: "Open Sans", sans-serif;  
+    max-width: 1000px;
+
+    text-align: center;
+    display: block;
+    margin: auto;
+ 
 }
+
+
 
 a {
   text-decoration: none;
@@ -130,10 +138,14 @@ button {
 }
 
 .covid_window > div {
-  background-color: #lightskyblue;
+  /* background-color: lightskyblue; */
   /* color: #fff; */
   border-radius: 5px;
   padding: 20px;
+}
+
+.today_covid{
+    /* padding-top: 45rem; */
 }
 
 /* 🍉js 8, chart js size */
