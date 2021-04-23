@@ -1,103 +1,161 @@
+/* 🍈ready- Universal tags */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  max-width: 1000px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* 🍈ready- css trick */
+
+.title {
+  background-color: lightsteelblue;
+}
+
+.overflow {
+  overflow: hidden;
+}
+.relative {
+  position: relative;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.transforming {
+  transition: transform 0.5s;
+}
+
+/* 🍈ready- Global */
 
 :root {
-    /* color */
-  
-    --naver-color :  #0eae44;
-    --kakao-color :  #fee101;
-  
-    --color-white: #ffffff;
-    --color-light-white: #eeeeee;
-    --color-dark-white: #bdbdbd;
-  
-    --color-black: #000000;
-    --color-grey: #616161;
-    --color-dark-grey: #4d4d4d;
-    --color-light-grey: #7c7979;
-    
-    --color-blue: #2b81e4;
-    --color-light-mint: #cbf3f0;
-    --color-yellow: #fff7d1;
-    --color-orange: #feb546;
-    --color-strong-orange: #dc2f02;
-    
-    --test-color: yellow;
-    
-    /* letterspacing : basic 0.1rem */
-    --letterspacing-basic: 0.1rem;
-    --letterspacing-test: 2rem;
-  
-    /* Size :basic 4px=0.5rem  */
-    --size-border-basic-radius: 0.5rem;
-    --size-border-test-radius: 1rem;
-  
-    /* Animation :basic 300ms=0.3s  */
-  
-    --animation_basic-duration: 0.3s;
-    --animation_test-duration: 1s;
-  }
+  /* color */
 
+  --naver-color: #0eae44;
+  --kakao-color: #fee101;
 
-.province{
-    padding: 15px;
-    border: 1px solid #d6e9c6;
-    border-radius: 4px;
-    color: #3c763d;
-    background-color: #dff0d8;
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+
+  --color-black: #000000;
+  --color-grey: #616161;
+  --color-dark-grey: #4d4d4d;
+  --color-light-grey: #7c7979;
+
+  --color-blue: #2b81e4;
+  --color-light-mint: #cbf3f0;
+  --color-yellow: #fff7d1;
+  --color-orange: #feb546;
+  --color-strong-orange: #dc2f02;
+
+  --test-color: yellow;
+
+  /* letterspacing : basic 0.1rem */
+  --letterspacing-basic: 0.1rem;
+  --letterspacing-test: 2rem;
+
+  /* Size :basic 4px=0.5rem  */
+  --size-border-basic-radius: 0.5rem;
+  --size-border-test-radius: 1rem;
+
+  /* Animation :basic 300ms=0.3s  */
+
+  --animation_basic-duration: 0.3s;
+  --animation_test-duration: 1s;
 }
 
-.confirmed{
-    padding: 15px;
-    border: 1px solid #d6e9c6;
-    border-radius: 4px;
-    color: lightskyblue;
-    background-color: #dff0d8;
-    
+/* 🍉js 4. */
 
+.province {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
 }
 
-.deaths{
-    padding: 15px;
-    border: 1px solid #d6e9c6;
-    border-radius: 4px;
-    color: lightsalmon;
-    background-color: #dff0d8;
+.confirmed {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: lightskyblue;
+  background-color: #dff0d8;
 }
-/* 
-.covid_window{
-    display: flex;
-    
-    
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+
+.deaths {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: lightsalmon;
+  background-color: #dff0d8;
 }
-.covid_window > div{
-    display: block;
-    margin: auto;
-    width: 100%;
-
-} */
-
-
 
 .covid_window {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* grid-gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-gap: 10px;
     background-color: #fff;
     color: #444; */
-  }
-  
-.covid_window >  div{
-    background-color: #lightskyblue;
-    /* color: #fff; */
-    border-radius: 5px;
-    padding: 20px;
-    /* font-size: 150%; */
-  }
+}
 
-/* js 8, chart js size */
-  .chart-container {
-    width: 1000px;
-    height: 500px;
+.covid_window > div {
+  background-color: #lightskyblue;
+  /* color: #fff; */
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* 🍉js 8, chart js size */
+.chart-container {
+  width: 1000px;
+  height: 500px;
+}
+
+/* 🍈 [responsive] for below 768px screen width */
+
+/* @ 576px */
+@media (max-width: 576px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* @ 1200px */
+@media (min-width: 1200px) {
+  #skills,
+  #language {
+    max-width: 1200px;
+    margin: auto;
+  }
 }

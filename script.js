@@ -2,7 +2,7 @@
 
 //  C 58 . JS 58
 
-// 🍄 API
+// 🍈 API
 
 // /v3/covid-19/jhucsse/counties
 let url_usa = 'https://disease.sh/v3/covid-19/jhucsse/counties';
@@ -11,7 +11,7 @@ let url_usa = 'https://disease.sh/v3/covid-19/jhucsse/counties';
 let url_historical = 'https://disease.sh/v3/covid-19/historical/us?lastdays=500';
 
 
-// 🍄 let, const
+// 🍈 let, const
 
 // let dateDisplay = 0;
 
@@ -22,16 +22,16 @@ let url_historical = 'https://disease.sh/v3/covid-19/historical/us?lastdays=500'
 // let totalDeaths = 0;
 
 
-// 🍄 selectors
+// 🍈 selectors
 
 let windowsContainer = document.querySelector('.windows_container');
 let covidWindow = document.querySelector('.covid_window');
 
-// 🍄 event Listeners
+// 🍈 event Listeners
 //  functions for sharing 
-// 🍄 functions standalone
+// 🍈 functions standalone
 
-//🍄 axios | covidUsa | /v3/covid-19/jhucsse/counties
+//🍈 axios | covidUsa | /v3/covid-19/jhucsse/counties
 
 // 🍉js 2,4, covidUsa axios
 /* 
@@ -142,7 +142,7 @@ function historical_container() {
         // console.log(recoveredObject);
     }
 
-    // 🍄 chart.js - covidCases ,covidDeaths ,recovered
+    // 🍈 chart.js - covidCases ,covidDeaths ,recovered
     var ctx = document.getElementById('covidCases');
 
     let labels = Object.keys(casesObject)               //js 6-4
@@ -175,17 +175,17 @@ function historical_container() {
               ],
               borderWidth: 1
           },
-            {
-              label: 'recovered for last 500days ',
-              data: recovered,                        //js 6-3
-              backgroundColor: [
-              '#2b81e4'
-              ],
-              borderColor: [
-                '#2b81e4'
-              ],
-              borderWidth: 1
-          } 
+          //   {
+          //     label: 'recovered for last 500days ',
+          //     data: recovered,                        //js 6-3
+          //     backgroundColor: [
+          //     '#2b81e4'
+          //     ],
+          //     borderColor: [
+          //       '#2b81e4'
+          //     ],
+          //     borderWidth: 1
+          // } 
           ],            
         },
         options: {
