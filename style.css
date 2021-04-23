@@ -4,8 +4,7 @@
 }
 
 html {
-  font-size: 100%;
-  
+  font-size: 100%;  
 }
 
 body {
@@ -14,11 +13,8 @@ body {
 
     text-align: center;
     display: block;
-    margin: auto;
- 
+    margin: auto; 
 }
-
-
 
 a {
   text-decoration: none;
@@ -103,6 +99,57 @@ button {
   --animation_test-duration: 1s;
 }
 
+/* 🍈html-css */
+
+.myButton {
+	background-color:var(--naver-color);
+	border-radius:28px;
+	border:1px solid var(--naver-color);
+	display:inline-block;
+	
+	color:#ffffff;	
+	font-size:17px;
+
+    margin: 1rem;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+.today_covid{
+    padding-top: 5rem;
+}
+
+.total_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.usa_today{
+    background-color: var(--naver-color);
+    border-radius: var(--size-border-basic-radius);
+    color:#ffffff;	
+    
+    font-size: 3rem;
+    
+}
+
+
+
+
+
+
+
+
 /* 🍉js 4. */
 .title-province, .title-confirmed, .title-deaths{
     background-color: lightgrey;
@@ -147,15 +194,13 @@ button {
   /* padding: 20px; */
 }
 
-.today_covid{
-    /* padding-top: 45rem; */
-}
 
 /* 🍉js 8, chart js size */
 .chart-container {
   width: 1000px;
   height: 500px;
 }
+
 
 /* 🍈 [responsive] for below 768px screen width */
 
