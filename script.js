@@ -178,10 +178,10 @@ function historical_container() {
                 label: 'covid cases for last 150days ',
                 data: cases,                        //js 6-3
                 backgroundColor: [
-                '#feb546'
+                '#2b81e4'
                 ],
                 borderColor: [
-                  '#feb546'
+                  '#2b81e4'
                 ],
                 borderWidth: 1
             },
@@ -189,10 +189,10 @@ function historical_container() {
               label: 'deaths for last 150days ',
               data: deaths,                        //js 6-3
               backgroundColor: [
-              'lightsalmon'
+              '#dc2f02'
               ],
               borderColor: [
-                'lightsalmon'
+                '#dc2f02'
               ],
               borderWidth: 1
           },
