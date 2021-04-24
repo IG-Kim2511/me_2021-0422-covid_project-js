@@ -117,6 +117,7 @@ button {
   position: fixed;
   bottom: 10px;
   right: 10px;
+
 }
 
 
@@ -138,10 +139,7 @@ button {
 .myButton:hover {
 	background-color:#bdbdbd;
 }
-.myButton:active {
-	position:relative;
-	top:1px;
-}
+
 
 .today{
   padding-top: 35rem;

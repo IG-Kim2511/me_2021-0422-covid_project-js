@@ -71,7 +71,7 @@ async function covidUsa() {
     // 🍉js 4.
 
     let date = document.querySelector('.date');
-    date.innerHTML = response.data[0].updatedAt;
+    date.innerHTML = response.data[0].updatedAt.substring(0,10);
 
     for (const iterator of response.data) {
       
@@ -95,7 +95,7 @@ async function covidUsa() {
         let deaths = document.createElement('div');
         deaths.className = "deaths";
         deaths.innerHTML = iterator.stats.deaths;      
-        covidWindow.append(deaths);   
+        covidWindow.append(deaths);           
     };
 
     // response.data.forEach( (a,i) => {               
