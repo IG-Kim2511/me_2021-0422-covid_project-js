@@ -101,6 +101,19 @@ button {
 
 /* 🍈html-css */
 
+.chart_section{
+  padding-top: 5rem;    
+}
+
+.chart_title{
+  background-color: var(--naver-color);
+  border-radius: var(--size-border-basic-radius);
+  color:#ffffff;	
+  font-size: 3rem;    
+  margin-bottom: 2rem;
+}
+
+
 .myButton {
 	background-color:var(--naver-color);
 	border-radius:var(--size-border-basic-radius);	
@@ -124,17 +137,16 @@ button {
 	top:1px;
 }
 
+.today{
+  padding-top: 35rem;
+}
+
 .total_cases_container{
-    background-color: #2b81e4;
-    
+    background-color: #2b81e4;    
 }
 
 .total_deaths_container{
     background-color: #dc2f02;
-}
-
-.section{
-    padding-top: 5rem;
 }
 
 .total_wrapper{
@@ -142,14 +154,6 @@ button {
     justify-content: center;
     align-items: center;
 }
-
-.usa_today{
-    background-color: var(--naver-color);
-    border-radius: var(--size-border-basic-radius);
-    color:#ffffff;	
-    font-size: 3rem;    
-}
-
 
 /* 🍉js 4. */
 .title-province, .title-confirmed, .title-deaths{
@@ -201,6 +205,9 @@ button {
   width: 1000px;
   height: 500px;
 }
+.padding{
+  padding-top: 15rem;
+}
 
 
 /* 🍈 [responsive] for below 768px screen width */
@@ -211,9 +218,18 @@ button {
     max-width: 900;
     margin: auto;
   }
+
   .chart-container {
     width: 700px;
     height: 500px;
+  }
+
+  .chart_section{
+    padding-top: 2rem;    
+  }
+
+  .today{
+    padding-top: 15rem;
   }
 }
 
@@ -222,10 +238,22 @@ button {
     html {
       font-size: 55%;
     }
-  
+      
     .chart-container {
       width: 500px;
       height: 500px;
+    }
+
+    .chart_section{
+      padding-top: 1rem;    
+    }  
+
+    .today{
+      padding-top: 5rem;
+    }
+
+    .myButton, .total_cases_container, .total_deaths_container {
+      font-size: 50%;
     }
   
   }

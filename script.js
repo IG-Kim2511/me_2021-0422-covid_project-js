@@ -75,13 +75,13 @@ async function covidUsa() {
 
     for (const iterator of response.data) {
       
-        console.log(iterator);
+        // console.log(iterator);
 
         let province = document.createElement('div');
         province.className = "province";
         province.innerHTML = iterator.province;      
         covidWindow.append(province); 
-    
+          
         let county = document.createElement('span');
         county.className = "county";
         county.innerHTML = ` ${iterator.county}`;
@@ -245,9 +245,7 @@ function historical_container() {
                     beginAtZero: true                    
                 }
             }              
-        },
-        
-          
+        }, 
     });
 
     //🍈js 12. total_stats
@@ -282,20 +280,22 @@ historical_container();
 
 // 🍉JS 8, axios, url_vaccine_world
 /* 
-
-🍄
-1. take country, and latest data of vaccine
-2. make a chart.js                          ................🌊
-
-*/
-/* 
 data: Array(184)
 0:
 177:
 country: "USA"
 timeline:
-1/1/21: 3375693
- */
+1/1/21: 3375693  */
+
+/* 🍄
+1. take country, and latest data of vaccine
+2. make a chart.js 
+
+4-2. empty array making
+4-4. for loop :: each data taking
+4-6. put those each datas 👉 to empty array 
+4-8. put those empty array 👉 to chart.js
+*/
 
 const vaccine =()=>{
   axios.get(url_vaccine_world)
@@ -306,22 +306,61 @@ const vaccine =()=>{
     // console.log(response.data[0].country);
 
     // js 8-1. getting last item from object
-    /*
-    let vaccineNum = response.data[0].timeline;
-    let lastVaccineNum = vaccineNum[Object.keys(vaccineNum)[Object.keys(vaccineNum).length - 1]]
-    console.log(lastVaccineNum);
 
-    let country = response.data[0].country;
-    console.log(country); */    
-    
-    for (let i = 0; i < response.data.length; i++) {
-      let country = response.data[i].country;
+    let countryArray =[];                 //js 8, 4-2
+    console.log(countryArray);
+ 
+    let lastVaccineNumArray =[];
+    console.log(lastVaccineNumArray)
+
+    for (let i = 0; i < response.data.length; i++) {  
+      let country = response.data[i].country;                //js 8, 4-4
       // console.log(country);
+      countryArray.push(country);                           //js 8, 4-6
 
       let vaccineNum = response.data[i].timeline;
-      let lastVaccineNum = vaccineNum[Object.keys(vaccineNum)[Object.keys(vaccineNum).length - 1]]      
-      // console.log(lastVaccineNum);      
+      let lastVaccineNum = vaccineNum[Object.keys(vaccineNum)[Object.keys(vaccineNum).length - 1]]    
+      // console.log(lastVaccineNum);   
+      
+      lastVaccineNumArray.push(lastVaccineNum);    
     }
+
+    var ctx = document.getElementById('vaccineStateWorld').getContext('2d');
+    var vaccineStateWorld = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: countryArray,                      //js 8, 4-8
+            datasets: [{
+                label: 'Vaccine coverage of each country',
+                data: lastVaccineNumArray,                     //js 8, 4-8
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
   })
   .catch(function (error) {
     // handle error

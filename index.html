@@ -34,8 +34,8 @@
     </section> -->
     
     <!-- 🍉js 6 -->
-     <section class="section">
-      <div class="usa_today">USA total covidStates</div>
+     <section class="chart_section">
+      <div class="chart_title">USA total covidStates</div>
 
        <div class="total_wrapper">
          <div class="total_cases_container myButton">
@@ -55,14 +55,22 @@
 
       <!-- // js 8, chart js size -->
       <div class="chart-container"> 
-        <canvas id="covidCases" width="10" height="10"></canvas>   
-        <!-- <canvas id="myChart" width="10" height="10"></canvas> -->
+        <canvas id="covidCases" width="10" height="10"></canvas>  
+        
+      </div>     
+    </section>
+
+    <section  class="chart_section">
+      <div class="chart_title">Vaccine State of each county</div>
+
+      <div class="chart-container">         
+        <canvas id="vaccineStateWorld" width="10" height="10"></canvas>
       </div>
      
     </section>
 
     <!-- 🍄confirmed of each County-->
-    <section class="section">             
+    <section class="today">             
        <!--  🍉js 4. 🍄Created elements by JS     -->
                
       <!--        
@@ -76,18 +84,15 @@
           <div class="covid_window"></div>
           <div class="covid_window"></div>
           <div class="covid_window"></div>        
-        </div> -->
-     
-
-
+        </div> --> 
       <div>
-        <div class="usa_today">USA Today covidStates</div>
+        <div class="chart_title">USA Today covidStates</div>
         <div class="date myButton"></div>  
       </div>
 
        <div class="windows_container" >
         <div class="covid_window">
-          <div class="title-province"> province& County <span class="county"></span></div>        
+          <div class="title-province"> state & County <span class="county"></span></div>        
           <div class="title-confirmed">confirmed</div> 
           <div class="title-deaths">deaths</div>          
         </div>
