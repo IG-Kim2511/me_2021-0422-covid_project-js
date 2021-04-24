@@ -245,23 +245,21 @@ function historical_container() {
                     beginAtZero: true                    
                 }
             }              
-        }        
+        },
+        
+          
     });
-
 
     //🍈js 12. total_stats
 
     let totalCases = document.querySelector('.total_cases');
     let totalDeaths = document.querySelector('.total_deaths');
     let totalVaccine = document.querySelector('.total_vaccine');
-
     
     /* 
         let casesObject = response.data.timeline.cases;  
-    let deathsObject = response.data.timeline.deaths;  
-    
+    let deathsObject = response.data.timeline.deaths;      
     */
-
     
     let latestCases = casesObject[Object.keys(casesObject)[Object.keys(casesObject).length - 1]]   
     
@@ -274,7 +272,6 @@ function historical_container() {
     totalCases.innerHTML = latestCases;
     totalDeaths.innerHTML = latestDeathsObject;
     totalVaccine.innerHTML = latestVaccineNum;
-
 
   })).catch(errors => {
     // react on errors.
@@ -315,8 +312,7 @@ const vaccine =()=>{
     console.log(lastVaccineNum);
 
     let country = response.data[0].country;
-    console.log(country); */
-    
+    console.log(country); */    
     
     for (let i = 0; i < response.data.length; i++) {
       let country = response.data[i].country;
@@ -334,7 +330,6 @@ const vaccine =()=>{
   .then(function () {
     // always executed
   });
-
   }
 
 vaccine();

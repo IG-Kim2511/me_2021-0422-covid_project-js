@@ -103,16 +103,19 @@ button {
 
 .myButton {
 	background-color:var(--naver-color);
-	border-radius:28px;	
+	border-radius:var(--size-border-basic-radius);	
 	display:inline-block;
 	
 	color:#ffffff;	
 	font-size:17px;
 
-    margin: 1rem;
+  margin: 1rem;
 	padding:16px 31px;
 	text-decoration:none;	
+
+  transition:  all .3s ease-in; 
 }
+
 .myButton:hover {
 	background-color:#bdbdbd;
 }
@@ -130,7 +133,7 @@ button {
     background-color: #dc2f02;
 }
 
-.today_covid{
+.section{
     padding-top: 5rem;
 }
 
@@ -144,16 +147,8 @@ button {
     background-color: var(--naver-color);
     border-radius: var(--size-border-basic-radius);
     color:#ffffff;	
-
-    font-size: 3rem;
-    
+    font-size: 3rem;    
 }
-
-
-
-
-
-
 
 
 /* 🍉js 4. */
@@ -217,8 +212,8 @@ button {
     margin: auto;
   }
   .chart-container {
-    width: 500px;
-    height: 250px;
+    width: 700px;
+    height: 500px;
   }
 }
 
@@ -229,8 +224,8 @@ button {
     }
   
     .chart-container {
-      width: 300px;
-      height: 150px;
+      width: 500px;
+      height: 500px;
     }
   
   }
