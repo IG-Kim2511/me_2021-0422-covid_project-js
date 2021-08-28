@@ -1,7 +1,5 @@
 "use strict";
 
-//  C 58 . JS 58
-
 // 🍈 API
 
 // /v3/covid-19/jhucsse/counties
